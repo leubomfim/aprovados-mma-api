@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	"os"
+	"net/http"
 )
 
 func main() {
@@ -17,5 +18,6 @@ func main() {
 		port = "3000"
 	}
 	r.Run(":" + port)
-	print("helloworld")
+
+	http.ListenAndServe(":" + port, r)
 }
