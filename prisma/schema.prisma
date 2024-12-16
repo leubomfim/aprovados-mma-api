@@ -17,8 +17,45 @@ model Questions {
   id           String   @id @default(cuid())
   title        String
   description  String
+  type         String
   alternatives Json[]
   attachments  Json[]
+  comments     Json[]
   createdAt    DateTime @default(now()) @map("created_at")
-  updatedAt  DateTime @default(now()) @map("updated_at")
+  updatedAt    DateTime @default(now()) @map("updated_at")
+}
+
+model Users {
+  id               String   @id @default(cuid())
+  credits          Int
+  name             String
+  email            String   @unique
+  password         String
+  session          String
+  simulations      Json[]   @map("completed_simulations")
+  photo            String
+  phoneNumber      String   @map("phone_number")
+  blockedQuentions Json[]   @map("blocked_questions")
+  cpf              String
+  historyPurchase  Json[]   @map("history_purchase")
+  questions        Json[]
+  role             String
+  plan             String   @map("plan_type")
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @default(now()) @map("updated_at")
+}
+
+model Curses {
+  id    String @id @default(cuid())
+  video String
+}
+
+model VideoLesson {
+  id          String   @id @default(cuid())
+  description String
+  title       String
+  createdBy   String
+  modules     Json[]
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @default(now()) @map("updated_at")
 }
