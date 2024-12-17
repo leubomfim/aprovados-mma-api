@@ -1,5 +1,5 @@
 import Fastify, { FastifyInstance } from "fastify";
-import { routes } from "./routes";
+import { routes } from "./src/routes";
 import fastifyCookie from "@fastify/cookie";
 import helmet from "@fastify/helmet";
 import fastifyCors from "@fastify/cors";
